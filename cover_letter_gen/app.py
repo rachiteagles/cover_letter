@@ -8,13 +8,25 @@ import streamlit as st
 
 load_dotenv()
 
+st.markdown("""
+    <style>
+        .reportview-container {
+            margin-top: -2em;
+        }
+        #MainMenu {visibility: hidden;}
+        .stDeployButton {display:none;}
+        footer {visibility: hidden;}
+        #stDecoration {display:none;}
+    </style>
+""", unsafe_allow_html=True)
+
 def generate_pet_name(resume,jd):
     llm = HuggingFaceHub(repo_id='google/gemma-1.1-7b-it',model_kwargs={'temperature':0.4})
     
 
     resume_summarization = PromptTemplate(
         input_variables=['resume','jd'],
-        template=" If my resume is {resume} and the job description is {jd}. A short 120 words message to the hiring manager mentioning how I am good for this role will be; "
+        template=" If my resume is {resume} and the job description is {jd}. A short 50 words message to the hiring manager mentioning how I am good for this role will be; "
         # job description looks like {jd} then my cover letter is, " 
     )
     name = LLMChain(llm=llm,prompt=resume_summarization)
