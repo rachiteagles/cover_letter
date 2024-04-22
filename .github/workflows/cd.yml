@@ -17,7 +17,7 @@ jobs:
 
     steps:
     - name: Delete old docker images
-      run: sudo docker rmi -f $(docker image ls -a -q)
+      run: sudo docker rmi -f $(sudo docker image ls -a -q)
     - name: Pull docker image from docker hub
       run: sudo docker pull ${{secrets.DOCKER_USERNAME}}/cover_letter_gen:latest
     - name: Delete the old docker container
