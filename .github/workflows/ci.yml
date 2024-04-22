@@ -4,9 +4,6 @@ on:
   push:
     branches: [ "main" ]
 
-env:
-  HUGGINGFACEHUB_API_TOKEN: "${{secrets.HUGGINGFACE_KEY_ID}}"
-
 jobs:
 
   build:
