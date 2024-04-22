@@ -20,5 +20,7 @@ jobs:
       
     - name: Build the Docker image
       run: docker build -t cover_letter_gen .
+    - name: Tag docker image
+      run: docker tag cover_letter_gen ${{secrets.DOCKER_USERNAME}}/cover_letter_gen:latest
     - name: Push to Dockerhub
       run: docker push ${{secrets.DOCKER_USERNAME}}/cover_letter_gen:latest
