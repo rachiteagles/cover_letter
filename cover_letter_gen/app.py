@@ -33,7 +33,6 @@ def generate_pet_name(resume,jd):
     response = name({'resume':resume,'jd':jd})
     return response['text']
 
-
 def multiline_to_singleline(multiline_text):
     # Replace newline characters with a single space
     singleline_text = multiline_text.replace('\n', '.')
