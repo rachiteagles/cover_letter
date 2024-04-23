@@ -20,4 +20,4 @@ jobs:
     - name: Pull docker image from docker hub
       run: sudo docker pull ${{secrets.DOCKER_USERNAME}}/cover_letter_gen:latest
     - name: Run Docker Container
-      run: sudo docker run -e HUGGINGFACEHUB_API_TOKEN="${{secrets.HUGGINGFACE_KEY_ID}}" -d -p 8501:8501 --name cover_letter_gen_container ${{secrets.DOCKER_USERNAME}}/cover_letter_gen:latest
+      run: sudo docker run -e HUGGINGFACEHUB_API_TOKEN=${{secrets.HUGGINGFACE_KEY_ID}} -d -p 8501:8501 --name cover_letter_gen_container ${{secrets.DOCKER_USERNAME}}/cover_letter_gen:latest
