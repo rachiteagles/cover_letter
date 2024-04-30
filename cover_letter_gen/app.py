@@ -25,7 +25,7 @@ def generate_pet_name(resume,jd):
 
     resume_summarization = PromptTemplate(
         input_variables=['resume','jd'],
-        template=" If my resume is {resume} and the job description is {jd}. Cover letter to the hiring manager mentioning how I am good for this role will be; "
+        template=" If my resume is {resume} and the job description is {jd}. Short 50 words message to the hiring manager mentioning how I am good for this role will be; "
         # job description looks like {jd} then my cover letter is, " 
     )
     name = LLMChain(llm=llm,prompt=resume_summarization)
